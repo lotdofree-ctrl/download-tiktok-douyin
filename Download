@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BY TAN DUC - TikTok & Douyin Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .brand-text { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #f72585 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 sm:p-6">
+    <header class="w-full max-w-2xl mx-auto flex justify-between items-center py-4 border-b border-slate-800 mb-6">
+        <h1 class="text-2xl sm:text-3xl font-black tracking-wider brand-text">BY TAN DUC</h1>
+        <span class="text-xs bg-slate-800 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30">v1.0.0</span>
+    </header>
+
+    <main class="w-full max-w-2xl mx-auto flex-1 flex flex-col justify-center">
+        <div class="glass-card rounded-2xl p-6 shadow-2xl space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-xl sm:text-2xl font-bold">Tải Video TikTok & Douyin</h2>
+                <p class="text-slate-400 text-sm">Không logo, chất lượng cao HD</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="relative">
+                    <input type="text" id="videoUrl" placeholder="Dán link video TikTok hoặc Douyin vào đây..." 
+                           class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 pr-12">
+                    <button onclick="pasteClipboard()" class="absolute right-3 top-2.5 text-slate-400 hover:text-cyan-400">
+                        <i class="fa-regular font-bold fa-paste text-lg"></i>
+                    </button>
+                </div>
+                <button onclick="downloadVideo()" id="btnSubmit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-3 rounded-xl transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Tải Video Ngay</span>
+                </button>
+            </div>
+
+            <div id="resultBox" class="hidden border-t border-slate-700/50 pt-4 space-y-4">
+                <div class="flex items-center space-x-3 bg-slate-900/50 p-3 rounded-lg">
+                    <img id="thumbImg" src="" class="w-16 h-16 object-cover rounded-md border border-slate-700">
+                    <div class="overflow-hidden">
+                        <h4 id="videoTitle" class="text-sm font-medium truncate text-slate-200">Video Title</h4>
+                        <p id="authorName" class="text-xs text-slate-400">@author</p>
+                    </div>
+                </div>
+                <a id="dlBtn" href="#" target="_blank" download class="block text-center w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-lg transition">
+                    <i class="fa-solid fa-file-arrow-down mr-1"></i> Lưu Video Không Logo (.MP4)
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full max-w-2xl mx-auto text-center text-xs text-slate-500 py-4 mt-6">
+        © 2026 Powered
